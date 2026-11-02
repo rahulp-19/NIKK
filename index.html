@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="A special, romantic, and dreamy universe created with love for Nikku 🌻🐱💗">
+  <meta name="theme-color" content="#FFF1A8">
+  <title>Heyyy My Beautiful Nikku! 🌻</title>
+  
+  <!-- Google Fonts: Quicksand for soft body, Playfair Display for romantic titles, Caveat for handwritten letter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Floating background canvas for gentle hearts, sunflower petals, and fairy sparkles -->
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- ==================== WELCOME SCREEN ==================== -->
+  <aside id="welcome-screen" class="welcome-screen" aria-label="Welcome screen for Nikku">
+    <div class="welcome-card glass-card">
+      <div class="welcome-badge">
+        <span class="sparkle-icon">✨</span> A Little World For Nikku <span class="sparkle-icon">✨</span>
+      </div>
+
+      <!-- Animated SVG: Cute Cat holding a Sunflower -->
+      <div class="welcome-cat-wrapper" aria-hidden="true">
+        <svg class="welcome-cat-svg" viewBox="0 0 200 200" width="160" height="160">
+          <defs>
+            <radialGradient id="sunflowerGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#FFD84D" />
+              <stop offset="70%" stop-color="#FFAE19" />
+              <stop offset="100%" stop-color="#E68A00" />
+            </radialGradient>
+            <linearGradient id="catBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FFFDF5" />
+              <stop offset="100%" stop-color="#FCEFD2" />
+            </linearGradient>
+            <linearGradient id="blushGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FF99AF" />
+              <stop offset="100%" stop-color="#FFCCD5" />
+            </linearGradient>
+          </defs>
+
+          <!-- Cat Body -->
+          <ellipse cx="100" cy="140" rx="46" ry="42" fill="url(#catBodyGrad)" stroke="#654B40" stroke-width="3" />
+          
+          <!-- Cat Belly patch -->
+          <ellipse cx="100" cy="145" rx="30" ry="26" fill="#FFFDF5" />
+
+          <!-- Cat Ears with inner pink -->
+          <polygon points="65,95 50,45 85,75" fill="url(#catBodyGrad)" stroke="#654B40" stroke-width="3" stroke-linejoin="round" />
+          <polygon points="66,90 56,54 82,75" fill="url(#blushGrad)" />
+          
+          <polygon points="135,95 150,45 115,75" fill="url(#catBodyGrad)" stroke="#654B40" stroke-width="3" stroke-linejoin="round" />
+          <polygon points="134,90 144,54 118,75" fill="url(#blushGrad)" />
+
+          <!-- Cat Head -->
+          <ellipse cx="100" cy="100" rx="48" ry="40" fill="url(#catBodyGrad)" stroke="#654B40" stroke-width="3" />
+
+          <!-- Cheeks / Blush -->
+          <circle cx="70" cy="110" r="7" fill="url(#blushGrad)" opacity="0.85" />
+          <circle cx="130" cy="110" r="7" fill="url(#blushGrad)" opacity="0.85" />
+
+          <!-- Cute anime eyes (blinking) -->
+          <g class="cat-eyes">
+            <ellipse cx="78" cy="98" rx="5.5" ry="7" fill="#654B40" />
+            <circle cx="76" cy="95" r="2.2" fill="#FFFFFF" />
+            <circle cx="80" cy="100" r="1.2" fill="#FFFFFF" />
+            
+            <ellipse cx="122" cy="98" rx="5.5" ry="7" fill="#654B40" />
+            <circle cx="120" cy="95" r="2.2" fill="#FFFFFF" />
+            <circle cx="124" cy="100" r="1.2" fill="#FFFFFF" />
+          </g>
+
+          <!-- Nose & Smile -->
+          <polygon points="98,106 102,106 100,109" fill="#FF8BA7" />
+          <path d="M 95,110 Q 100,114 100,110 Q 100,114 105,110" fill="none" stroke="#654B40" stroke-width="2.2" stroke-linecap="round" />
+
+          <!-- Whiskers -->
+          <line x1="56" y1="104" x2="42" y2="102" stroke="#654B40" stroke-width="1.8" stroke-linecap="round" />
+          <line x1="56" y1="110" x2="40" y2="112" stroke="#654B40" stroke-width="1.8" stroke-linecap="round" />
+          <line x1="144" y1="104" x2="158" y2="102" stroke="#654B40" stroke-width="1.8" stroke-linecap="round" />
+          <line x1="144" y1="110" x2="160" y2="112" stroke="#654B40" stroke-width="1.8" stroke-linecap="round" />
+
+          <!-- Cat Paws holding sunflower -->
+          <ellipse cx="78" cy="142" rx="10" ry="8" fill="#FFFDF5" stroke="#654B40" stroke-width="2.5" />
+          <ellipse cx="122" cy="142" rx="10" ry="8" fill="#FFFDF5" stroke="#654B40" stroke-width="2.5" />
+
+          <!-- Sunflower in paws -->
+          <g class="welcome-sunflower-group" transform="translate(100, 142)">
+            <line x1="0" y1="0" x2="0" y2="35" stroke="#5D8A4E" stroke-width="4.5" stroke-linecap="round" />
+            <path d="M 0,22 Q 12,16 16,22 Q 8,28 0,24" fill="#6DA65C" stroke="#5D8A4E" stroke-width="1.5" />
+            <g class="sunflower-petals-spin">
+              <!-- Sunflower Petals -->
+              <ellipse cx="0" cy="-18" rx="6" ry="12" fill="url(#sunflowerGrad)" />
+              <ellipse cx="12.7" cy="-12.7" rx="6" ry="12" fill="url(#sunflowerGrad)" transform="rotate(45 12.7 -12.7)" />
+              <ellipse cx="18" cy="0" rx="6" ry="12" fill="url(#sunflowerGrad)" transform="rotate(90 18 0)" />
+              <ellipse cx="12.7" cy="12.7" rx="6" ry="12" fill="url(#sunflowerGrad)" transform="rotate(135 12.7 12.7)" />
+              <ellipse cx="0" cy="18" rx="6" ry="12" fill="url(#sunflowerGrad)" transform="rotate(180 0 18)" />
+              <ellipse cx="-12.7" cy="12.7" rx="6" ry="12" fill="url(#sunflowerGrad)" transform="rotate(225 -12.7 12.7)" />
+              <ellipse cx="-18" cy="0" rx="6" ry="12" fill="url(#sunflowerGrad)" transform="rotate(270 -18 0)" />
+              <ellipse cx="-12.7" cy="-12.7" rx="6" ry="12" fill="url(#sunflowerGrad)" transform="rotate(315 -12.7 -12.7)" />
+              <!-- Center Core -->
+              <circle cx="0" cy="0" r="11" fill="#754320" stroke="#FFD84D" stroke-width="2" />
+              <circle cx="0" cy="0" r="7" fill="#542E13" />
+            </g>
+          </g>
+
+          <!-- Floating mini hearts around kitten -->
+          <path class="float-heart-1" d="M 45,70 A 5,5 0 0,0 35,70 A 5,5 0 0,0 40,77 L 40,78 Z" fill="#FF758F" />
+          <path class="float-heart-2" d="M 160,65 A 4,4 0 0,0 152,65 A 4,4 0 0,0 156,71 L 156,72 Z" fill="#FFA69E" />
+        </svg>
+      </div>
+
+      <h1 class="welcome-title">Heyyy My Beautiful Nikku! 🌻</h1>
+      <p class="welcome-subtitle">I made a little something just for you...</p>
+
+      <button id="enter-btn" class="glow-button" type="button">
+        <span class="btn-text">Open Your Little Happiness</span>
+        <span class="btn-emoji">💛</span>
+      </button>
+
+      <p class="welcome-hint">🌸 Tap the button to enter your safe space</p>
+    </div>
+  </aside>
+
+  <!-- Background Audio: Ed Sheeran - Perfect (Plays from 3:18) -->
+  <audio id="bg-audio" preload="auto" src="Ed Sheeran - Perfect.mp3"></audio>
+
+  <!-- ==================== FLOATING MUSIC & TOP BAR ==================== -->
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <div class="top-title">
+        <span class="nav-sunflower">🌻</span>
+        <span class="nav-text">Nikku's Universe</span>
+      </div>
+      <div class="top-actions">
+        <!-- Background Music Button -->
+        <button id="music-toggle-btn" class="music-btn" aria-label="Toggle background music" title="Perfect - Ed Sheeran (From 3:18)">
+          <span id="music-icon" class="music-icon">🎵</span>
+          <span id="music-label" class="music-label">Perfect 💛</span>
+          <span class="music-notes" aria-hidden="true"><span>♪</span><span>♫</span></span>
+        </button>
+        <!-- Quick Love Shower Button -->
+        <button id="love-shower-btn" class="love-shower-btn" aria-label="Shower screen with love" title="Shower screen with love">
+          <span>💖</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT WRAPPER ==================== -->
+  <main id="main-content" class="main-content hidden">
+
+    <!-- HERO / BANNER SECTION -->
+    <section class="hero-section">
+      <div class="floating-petals-decor" aria-hidden="true">
+        <span class="petal p1">🌸</span>
+        <span class="petal p2">🌻</span>
+        <span class="petal p3">✨</span>
+        <span class="petal p4">💕</span>
+        <span class="petal p5">🌻</span>
+      </div>
+      <div class="hero-tag">For my one and only soulmate</div>
+      <h2 class="hero-subhead">Welcome to your little corner of sunshine</h2>
+      <p class="hero-instruction">Scroll down slowly, smile lots, and remember how cherished you are...</p>
+    </section>
+
+    <!-- SECTION 1: A SPECIAL MESSAGE FOR HER -->
+    <section class="section-container" id="special-message-section">
+      <div class="section-card romantic-card glass-card">
+        <div class="card-flower-decor top-left" aria-hidden="true">🌻</div>
+        <div class="card-flower-decor top-right" aria-hidden="true">💖</div>
+
+        <div class="card-pill">A Letter From My Heart</div>
+        <h2 class="section-title cursive-highlight">To The Prettiest Girl In My Universe 💗</h2>
+
+        <div class="message-content">
+          <p class="letter-greeting">Hey Nikkuuu! ❤️</p>
+          <p>I don't know what made your day a little difficult, but I want you to remember something.</p>
+          <p>You are <strong class="highlight-text">genuinely one of the most beautiful souls in this world</strong>. Your smile, your eyes, your little habits, your adorable personality... everything about you is so special to me.</p>
+          <p>And even on the days when you don't feel pretty, happy, or confident, <em class="soft-quote">I wish you could see yourself through my eyes.</em></p>
+          <p>You're my favourite person, my sunshine, and my sweetest happiness.</p>
+          <p>You don't have to be happy every second. It's okay to have bad days. Just remember that <strong class="highlight-text">you're never alone</strong>.</p>
+          <p class="letter-closing">I love you SOOOOO MUCH, Nikkuuu! 💛</p>
+        </div>
+
+        <div class="card-footer-decor">
+          <span class="decor-line"></span>
+          <span class="decor-heart">🌸 🌻 🌸</span>
+          <span class="decor-line"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: THE SUNFLOWER SECTION 🌻 -->
+    <section class="section-container" id="sunflower-section">
+      <div class="section-card sunflower-card glass-card">
+        <div class="card-pill yellow-pill">Always Facing You</div>
+        <h2 class="section-title">A Little Flower For My Sunshine 🌻</h2>
+
+        <!-- Interactive Animated Sunflower -->
+        <div class="sunflower-interactive-wrapper" id="sunflower-interactive" role="button" tabindex="0" aria-label="Tap to bloom the sunflower">
+          <div class="sunflower-glow-ring"></div>
+          
+          <svg class="giant-sunflower-svg" viewBox="0 0 240 280" width="210" height="240">
+            <defs>
+              <radialGradient id="sunflowerCenterGrad" cx="45%" cy="45%" r="55%">
+                <stop offset="0%" stop-color="#80461B" />
+                <stop offset="65%" stop-color="#542B0D" />
+                <stop offset="100%" stop-color="#381B07" />
+              </radialGradient>
+              <radialGradient id="bigPetalGrad" cx="30%" cy="30%" r="70%">
+                <stop offset="0%" stop-color="#FFF1A8" />
+                <stop offset="35%" stop-color="#FFD84D" />
+                <stop offset="85%" stop-color="#FF9D00" />
+                <stop offset="100%" stop-color="#E07B00" />
+              </radialGradient>
+              <linearGradient id="stemGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#55883B" />
+                <stop offset="50%" stop-color="#6FA84E" />
+                <stop offset="100%" stop-color="#4B7733" />
+              </linearGradient>
+            </defs>
+
+            <!-- Swaying Stem -->
+            <g class="stem-group">
+              <path d="M 120,130 Q 115,190 120,270" fill="none" stroke="url(#stemGrad)" stroke-width="8" stroke-linecap="round" />
+              <!-- Leaves -->
+              <path class="leaf-left" d="M 117,195 Q 75,175 60,195 Q 85,215 117,205" fill="#6FA84E" stroke="#55883B" stroke-width="2" />
+              <path class="leaf-right" d="M 119,220 Q 165,200 180,222 Q 155,240 120,230" fill="#6FA84E" stroke="#55883B" stroke-width="2" />
+            </g>
+
+            <!-- Sunflower Bloom (gently breathing and rotating) -->
+            <g class="sunflower-head" id="sunflower-head" transform="translate(120, 120)">
+              <!-- Outer Ring of 16 Petals -->
+              <g class="outer-petals">
+                <path d="M 0,-70 Q 14,-35 0,-15 Q -14,-35 0,-70" fill="url(#bigPetalGrad)" />
+                <path d="M 0,-70 Q 14,-35 0,-15 Q -14,-35 0,-70" fill="url(#bigPetalGrad)" transform="rotate(22.5)" />
+                <path d="M 0,-70 Q 14,-35 0,-15 Q -14,-35 0,-70" fill="url(#bigPetalGrad)" transform="rotate(45)" />
+                <path d="M 0,-70 Q 14,-35 0,-15 Q -14,-35 0,-70" fill="url(#bigPetalGrad)" transform="rotate(67.5)" />
+                <path d="M 0,-70 Q 14,-35 0,-15 Q -14,-35 0,-70" fill="url(#bigPetalGrad)" transform="rotate(90)" />
+                <path d="M 0,-70 Q 14,-35 0,-15 Q -14,-35 0,-70" fill="url(#bigPetalGrad)" transform="rotate(112.5)" />
+                <path d="M 0,-70 Q 14,-35 0,-15 Q -14,-35 0,-70" fill="url(#bigPetalGrad)" transform="rotate(135)" />
+                <path d="M 0,-70 Q 14,-35 0,-15 Q -14,-35 0,-70" fill="url(#bigPetalGrad)" transform="rotate(157.5)" />
+                <path d="M 0,-70 Q 14,-35 0,-15 Q -14,-35 0,-70" fill="url(#bigPetalGrad)" transform="rotate(180)" />
+                <path d="M 0,-70 Q 14,-35 0,-15 Q -14,-35 0,-70" fill="url(#bigPetalGrad)" transform="rotate(202.5)" />
+                <path d="M 0,-70 Q 14,-35 0,-15 Q -14,-35 0,-70" fill="url(#bigPetalGrad)" transform="rotate(225)" />
+                <path d="M 0,-70 Q 14,-35 0,-15 Q -14,-35 0,-70" fill="url(#bigPetalGrad)" transform="rotate(247.5)" />
+                <path d="M 0,-70 Q 14,-35 0,-15 Q -14,-35 0,-70" fill="url(#bigPetalGrad)" transform="rotate(270)" />
+                <path d="M 0,-70 Q 14,-35 0,-15 Q -14,-35 0,-70" fill="url(#bigPetalGrad)" transform="rotate(292.5)" />
+                <path d="M 0,-70 Q 14,-35 0,-15 Q -14,-35 0,-70" fill="url(#bigPetalGrad)" transform="rotate(315)" />
+                <path d="M 0,-70 Q 14,-35 0,-15 Q -14,-35 0,-70" fill="url(#bigPetalGrad)" transform="rotate(337.5)" />
+              </g>
+
+              <!-- Inner Layer of Petals for Density -->
+              <g class="inner-petals" opacity="0.95">
+                <path d="M 0,-56 Q 10,-28 0,-10 Q -10,-28 0,-56" fill="#FFC72C" transform="rotate(11.25)" />
+                <path d="M 0,-56 Q 10,-28 0,-10 Q -10,-28 0,-56" fill="#FFC72C" transform="rotate(56.25)" />
+                <path d="M 0,-56 Q 10,-28 0,-10 Q -10,-28 0,-56" fill="#FFC72C" transform="rotate(101.25)" />
+                <path d="M 0,-56 Q 10,-28 0,-10 Q -10,-28 0,-56" fill="#FFC72C" transform="rotate(146.25)" />
+                <path d="M 0,-56 Q 10,-28 0,-10 Q -10,-28 0,-56" fill="#FFC72C" transform="rotate(191.25)" />
+                <path d="M 0,-56 Q 10,-28 0,-10 Q -10,-28 0,-56" fill="#FFC72C" transform="rotate(236.25)" />
+                <path d="M 0,-56 Q 10,-28 0,-10 Q -10,-28 0,-56" fill="#FFC72C" transform="rotate(281.25)" />
+                <path d="M 0,-56 Q 10,-28 0,-10 Q -10,-28 0,-56" fill="#FFC72C" transform="rotate(326.25)" />
+              </g>
+
+              <!-- Center Disc with Spiral Texture -->
+              <circle cx="0" cy="0" r="32" fill="url(#sunflowerCenterGrad)" stroke="#FFD84D" stroke-width="2" />
+              
+              <!-- Cute Sweet Smiling Face in Center -->
+              <g class="sunflower-face">
+                <!-- Sparkly Eyes -->
+                <ellipse cx="-11" cy="-4" rx="3.5" ry="4.5" fill="#FFE1E8" />
+                <circle cx="-12" cy="-6" r="1.5" fill="#FFFDF5" />
+                
+                <ellipse cx="11" cy="-4" rx="3.5" ry="4.5" fill="#FFE1E8" />
+                <circle cx="10" cy="-6" r="1.5" fill="#FFFDF5" />
+                
+                <!-- Cheeks -->
+                <circle cx="-16" cy="4" r="3.5" fill="#FF8BA7" opacity="0.8" />
+                <circle cx="16" cy="4" r="3.5" fill="#FF8BA7" opacity="0.8" />
+                
+                <!-- Happy Smile -->
+                <path d="M -7,6 Q 0,13 7,6" fill="none" stroke="#FFE1E8" stroke-width="2.2" stroke-linecap="round" />
+              </g>
+            </g>
+          </svg>
+
+          <span class="tap-hint">✨ Tap me to send Nikku a flower burst! ✨</span>
+        </div>
+
+        <div class="sunflower-message">
+          <blockquote class="poetic-quote">
+            "If I could give you a flower every time I thought about you, you'd be surrounded by an endless field of sunflowers.<br><br>
+            Because just like a sunflower follows the sun, my happiness always finds its way back to you."
+          </blockquote>
+        </div>
+
+        <!-- Floating Petals Decorative Layer -->
+        <div class="mini-petals-float" aria-hidden="true">
+          <span>🌻</span>
+          <span>✨</span>
+          <span>🌻</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: THE CAT PARADISE 🐱 -->
+    <section class="section-container" id="cat-paradise-section">
+      <div class="section-header-box">
+        <div class="card-pill lavender-pill">Endless Purrs Just For You</div>
+        <h2 class="section-title">Welcome To Your Little Cat Paradise! 🐱</h2>
+        <p class="section-desc">Since you love cats so much, these 4 sweet little kittens came all the way to bring you happiness! Tap them to pet them!</p>
+      </div>
+
+      <div class="cat-grid">
+        <!-- CAT 1: Waving Paw Cat -->
+        <div class="cat-card glass-card" data-cat="waving" tabindex="0" role="button" aria-label="Waving kitten. Tap to pet!">
+          <div class="cat-illustration-box">
+            <svg class="cat-card-svg" viewBox="0 0 160 160" width="130" height="130">
+              <!-- Body -->
+              <ellipse cx="80" cy="115" rx="38" ry="34" fill="#FFFDF5" stroke="#654B40" stroke-width="2.5" />
+              <!-- Calico Patches -->
+              <path d="M 60,95 Q 75,90 78,110 Q 60,118 60,95" fill="#FFD84D" opacity="0.65" />
+              <!-- Left Ear -->
+              <polygon points="50,75 35,35 65,55" fill="#FFD84D" stroke="#654B40" stroke-width="2.5" stroke-linejoin="round" />
+              <polygon points="50,70 42,45 62,55" fill="#FFCCD5" />
+              <!-- Right Ear -->
+              <polygon points="110,75 125,35 95,55" fill="#FFFDF5" stroke="#654B40" stroke-width="2.5" stroke-linejoin="round" />
+              <polygon points="110,70 118,45 98,55" fill="#FFCCD5" />
+              <!-- Head -->
+              <ellipse cx="80" cy="78" rx="40" ry="34" fill="#FFFDF5" stroke="#654B40" stroke-width="2.5" />
+              <!-- Cheeks -->
+              <circle cx="56" cy="86" r="6" fill="#FF99AF" opacity="0.85" />
+              <circle cx="104" cy="86" r="6" fill="#FF99AF" opacity="0.85" />
+              <!-- Winking / Big Cute Eyes -->
+              <ellipse cx="64" cy="76" rx="4.5" ry="6" fill="#654B40" />
+              <circle cx="62" cy="73" r="1.8" fill="#FFF" />
+              <!-- Right eye winking curve -->
+              <path d="M 94,76 Q 100,70 106,76" fill="none" stroke="#654B40" stroke-width="2.5" stroke-linecap="round" />
+              <!-- Nose & Mouth -->
+              <polygon points="78,82 82,82 80,85" fill="#FF8BA7" />
+              <path d="M 76,86 Q 80,89 80,86 Q 80,89 84,86" fill="none" stroke="#654B40" stroke-width="2" stroke-linecap="round" />
+              <!-- Left resting paw -->
+              <ellipse cx="60" cy="120" rx="8" ry="6" fill="#FFFDF5" stroke="#654B40" stroke-width="2" />
+              <!-- Right WAVING paw (animated) -->
+              <g class="animated-waving-paw" transform="translate(106, 105)">
+                <ellipse cx="8" cy="-8" rx="9" ry="7" fill="#FFFDF5" stroke="#654B40" stroke-width="2.2" />
+                <circle cx="8" cy="-8" r="2.5" fill="#FFCCD5" />
+              </g>
+              <!-- Tail wagging -->
+              <path class="animated-cat-tail" d="M 42,125 Q 20,120 22,100" fill="none" stroke="#654B40" stroke-width="4" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="cat-content">
+            <span class="cat-badge">Waving Kitty</span>
+            <p class="cat-caption">"This kitty says you're purrfect!"</p>
+            <button class="pet-btn" type="button">Pet Me 🐾</button>
+          </div>
+        </div>
+
+        <!-- CAT 2: Sleepy Kitten -->
+        <div class="cat-card glass-card" data-cat="sleepy" tabindex="0" role="button" aria-label="Sleepy kitten. Tap to cuddle!">
+          <div class="cat-illustration-box">
+            <svg class="cat-card-svg" viewBox="0 0 160 160" width="130" height="130">
+              <!-- Fluffy Dream Cloud Pillow -->
+              <ellipse cx="80" cy="132" rx="55" ry="16" fill="#EDE5FF" opacity="0.7" />
+              <circle cx="50" cy="128" r="14" fill="#EDE5FF" opacity="0.6" />
+              <circle cx="110" cy="128" r="14" fill="#EDE5FF" opacity="0.6" />
+              <!-- Curled Body -->
+              <ellipse cx="80" cy="105" rx="42" ry="28" fill="#FFFDF5" stroke="#654B40" stroke-width="2.5" />
+              <!-- Sleeping Head tilted -->
+              <g transform="translate(60, 92) rotate(-8)">
+                <!-- Ears -->
+                <polygon points="-15,-15 -25,-40 -5,-25" fill="#FFE1E8" stroke="#654B40" stroke-width="2.2" stroke-linejoin="round" />
+                <polygon points="15,-15 5,-40 25,-25" fill="#FFE1E8" stroke="#654B40" stroke-width="2.2" stroke-linejoin="round" />
+                <ellipse cx="0" cy="0" rx="30" ry="25" fill="#FFFDF5" stroke="#654B40" stroke-width="2.5" />
+                <!-- Sleeping Eyes (curved lines) -->
+                <path d="M -16,-2 Q -10,4 -4,-2" fill="none" stroke="#654B40" stroke-width="2.4" stroke-linecap="round" />
+                <path d="M 4,-2 Q 10,4 16,-2" fill="none" stroke="#654B40" stroke-width="2.4" stroke-linecap="round" />
+                <!-- Pink cheeks -->
+                <circle cx="-16" cy="6" r="5" fill="#FF99AF" opacity="0.8" />
+                <circle cx="16" cy="6" r="5" fill="#FF99AF" opacity="0.8" />
+                <!-- Nose -->
+                <polygon points="-2,4 2,4 0,7" fill="#FF8BA7" />
+              </g>
+              <!-- Tail tucked -->
+              <path d="M 120,110 Q 130,100 115,88" fill="none" stroke="#654B40" stroke-width="3.5" stroke-linecap="round" />
+              <!-- Floating Zzz sleeping letters -->
+              <g class="sleeping-zzz">
+                <text x="105" y="65" font-family="'Quicksand', sans-serif" font-weight="700" font-size="12" fill="#BA9DE8">z</text>
+                <text x="116" y="52" font-family="'Quicksand', sans-serif" font-weight="700" font-size="15" fill="#9C7AD8">z</text>
+                <text x="128" y="38" font-family="'Quicksand', sans-serif" font-weight="700" font-size="18" fill="#7E56C9">Z</text>
+              </g>
+            </svg>
+          </div>
+          <div class="cat-content">
+            <span class="cat-badge">Sleepy Kitty</span>
+            <p class="cat-caption">"Sending you 1000 tiny hugs!"</p>
+            <button class="pet-btn" type="button">Cuddle Me 💤</button>
+          </div>
+        </div>
+
+        <!-- CAT 3: Kitten Holding a Heart -->
+        <div class="cat-card glass-card" data-cat="heart" tabindex="0" role="button" aria-label="Heart kitten. Tap for love!">
+          <div class="cat-illustration-box">
+            <svg class="cat-card-svg" viewBox="0 0 160 160" width="130" height="130">
+              <!-- Body -->
+              <ellipse cx="80" cy="115" rx="36" ry="32" fill="#FFFDF5" stroke="#654B40" stroke-width="2.5" />
+              <!-- Ears -->
+              <polygon points="52,70 40,35 68,52" fill="#FFFDF5" stroke="#654B40" stroke-width="2.5" stroke-linejoin="round" />
+              <polygon points="52,66 45,43 64,52" fill="#FFCCD5" />
+              <polygon points="108,70 120,35 92,52" fill="#FFFDF5" stroke="#654B40" stroke-width="2.5" stroke-linejoin="round" />
+              <polygon points="108,66 115,43 96,52" fill="#FFCCD5" />
+              <!-- Head -->
+              <ellipse cx="80" cy="74" rx="38" ry="32" fill="#FFFDF5" stroke="#654B40" stroke-width="2.5" />
+              <!-- Happy smiling curved eyes -->
+              <path d="M 60,72 Q 67,65 74,72" fill="none" stroke="#654B40" stroke-width="2.5" stroke-linecap="round" />
+              <path d="M 86,72 Q 93,65 100,72" fill="none" stroke="#654B40" stroke-width="2.5" stroke-linecap="round" />
+              <!-- Cheeks -->
+              <circle cx="56" cy="80" r="6" fill="#FF99AF" opacity="0.85" />
+              <circle cx="104" cy="80" r="6" fill="#FF99AF" opacity="0.85" />
+              <!-- Nose & mouth -->
+              <polygon points="78,77 82,77 80,80" fill="#FF8BA7" />
+              <path d="M 76,82 Q 80,85 84,82" fill="none" stroke="#654B40" stroke-width="2" stroke-linecap="round" />
+              <!-- Pulsing Big Heart in paws -->
+              <g class="animated-beating-heart" transform="translate(80, 115)">
+                <path d="M 0,-10 A 12,12 0 0,0 -18,-10 Q -18,5 0,18 Q 18,5 18,-10 A 12,12 0 0,0 0,-10 Z" fill="#FF6584" stroke="#FFE1E8" stroke-width="2" />
+                <circle cx="-6" cy="-10" r="3" fill="#FFF" opacity="0.6" />
+              </g>
+              <!-- Paws gripping heart -->
+              <ellipse cx="62" cy="112" rx="7" ry="6" fill="#FFFDF5" stroke="#654B40" stroke-width="2" />
+              <ellipse cx="98" cy="112" rx="7" ry="6" fill="#FFFDF5" stroke="#654B40" stroke-width="2" />
+            </svg>
+          </div>
+          <div class="cat-content">
+            <span class="cat-badge">Heart Kitty</span>
+            <p class="cat-caption">"Even cats agree you're adorable!"</p>
+            <button class="pet-btn" type="button">Give Heart 💖</button>
+          </div>
+        </div>
+
+        <!-- CAT 4: Kitten Holding a Sunflower -->
+        <div class="cat-card glass-card" data-cat="sunflower" tabindex="0" role="button" aria-label="Sunflower kitten. Tap to cheer!">
+          <div class="cat-illustration-box">
+            <svg class="cat-card-svg" viewBox="0 0 160 160" width="130" height="130">
+              <!-- Body -->
+              <ellipse cx="80" cy="116" rx="36" ry="32" fill="#FFFDF5" stroke="#654B40" stroke-width="2.5" />
+              <!-- Ears -->
+              <polygon points="52,70 42,35 68,52" fill="#FFFDF5" stroke="#654B40" stroke-width="2.5" stroke-linejoin="round" />
+              <polygon points="52,66 46,43 64,52" fill="#FFCCD5" />
+              <polygon points="108,70 118,35 92,52" fill="#FFFDF5" stroke="#654B40" stroke-width="2.5" stroke-linejoin="round" />
+              <polygon points="108,66 114,43 96,52" fill="#FFCCD5" />
+              <!-- Head -->
+              <ellipse cx="80" cy="74" rx="38" ry="32" fill="#FFFDF5" stroke="#654B40" stroke-width="2.5" />
+              <!-- Big Anime Stargazer Eyes -->
+              <ellipse cx="66" cy="73" rx="5" ry="6.5" fill="#654B40" />
+              <circle cx="64" cy="70" r="2" fill="#FFF" />
+              <circle cx="68" cy="75" r="1.2" fill="#FFF" />
+              <ellipse cx="94" cy="73" rx="5" ry="6.5" fill="#654B40" />
+              <circle cx="92" cy="70" r="2" fill="#FFF" />
+              <circle cx="96" cy="75" r="1.2" fill="#FFF" />
+              <!-- Cheeks -->
+              <circle cx="56" cy="80" r="6" fill="#FF99AF" opacity="0.85" />
+              <circle cx="104" cy="80" r="6" fill="#FF99AF" opacity="0.85" />
+              <!-- Nose & cute cat mouth -->
+              <polygon points="78,78 82,78 80,81" fill="#FF8BA7" />
+              <path d="M 76,82 Q 80,85 80,82 Q 80,85 84,82" fill="none" stroke="#654B40" stroke-width="2" stroke-linecap="round" />
+              <!-- Sunflower Flower Crown on Ear -->
+              <g transform="translate(50, 48) scale(0.65)">
+                <ellipse cx="0" cy="-12" rx="4" ry="8" fill="#FFD84D" />
+                <ellipse cx="8.5" cy="-8.5" rx="4" ry="8" fill="#FFD84D" transform="rotate(45 8.5 -8.5)" />
+                <ellipse cx="12" cy="0" rx="4" ry="8" fill="#FFD84D" transform="rotate(90 12 0)" />
+                <ellipse cx="8.5" cy="8.5" rx="4" ry="8" fill="#FFD84D" transform="rotate(135 8.5 8.5)" />
+                <ellipse cx="0" cy="12" rx="4" ry="8" fill="#FFD84D" transform="rotate(180 0 12)" />
+                <ellipse cx="-8.5" cy="8.5" rx="4" ry="8" fill="#FFD84D" transform="rotate(225 -8.5 8.5)" />
+                <ellipse cx="-12" cy="0" rx="4" ry="8" fill="#FFD84D" transform="rotate(270 -12 0)" />
+                <ellipse cx="-8.5" cy="-8.5" rx="4" ry="8" fill="#FFD84D" transform="rotate(315 -8.5 -8.5)" />
+                <circle cx="0" cy="0" r="8" fill="#6B3E11" />
+              </g>
+              <!-- Kitten holding mini sunflower stem -->
+              <line x1="88" y1="100" x2="105" y2="135" stroke="#5D8A4E" stroke-width="3" stroke-linecap="round" />
+              <g transform="translate(88, 98) scale(0.7)">
+                <ellipse cx="0" cy="-12" rx="4" ry="8" fill="#FFD84D" />
+                <ellipse cx="8.5" cy="-8.5" rx="4" ry="8" fill="#FFD84D" transform="rotate(45 8.5 -8.5)" />
+                <ellipse cx="12" cy="0" rx="4" ry="8" fill="#FFD84D" transform="rotate(90 12 0)" />
+                <ellipse cx="8.5" cy="8.5" rx="4" ry="8" fill="#FFD84D" transform="rotate(135 8.5 8.5)" />
+                <ellipse cx="0" cy="12" rx="4" ry="8" fill="#FFD84D" transform="rotate(180 0 12)" />
+                <ellipse cx="-8.5" cy="8.5" rx="4" ry="8" fill="#FFD84D" transform="rotate(225 -8.5 8.5)" />
+                <ellipse cx="-12" cy="0" rx="4" ry="8" fill="#FFD84D" transform="rotate(270 -12 0)" />
+                <ellipse cx="-8.5" cy="-8.5" rx="4" ry="8" fill="#FFD84D" transform="rotate(315 -8.5 -8.5)" />
+                <circle cx="0" cy="0" r="8" fill="#754320" />
+              </g>
+              <!-- Paws -->
+              <ellipse cx="72" cy="115" rx="7" ry="6" fill="#FFFDF5" stroke="#654B40" stroke-width="2" />
+              <ellipse cx="94" cy="115" rx="7" ry="6" fill="#FFFDF5" stroke="#654B40" stroke-width="2" />
+            </svg>
+          </div>
+          <div class="cat-content">
+            <span class="cat-badge">Sunny Kitty</span>
+            <p class="cat-caption">"Meow means I love you!"</p>
+            <button class="pet-btn" type="button">Meow Back 🌻</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: 10 REASONS WHY YOU'RE SO SPECIAL -->
+    <section class="section-container" id="ten-reasons-section">
+      <div class="section-header-box">
+        <div class="card-pill pink-pill">A Little Love Catalog</div>
+        <h2 class="section-title">10 Reasons Why You're So Special 💫</h2>
+        <p class="section-desc">Tap each card to flip and reveal a special reason why Nikku is the most wonderful girl alive!</p>
+        
+        <!-- Progress counter -->
+        <div class="cards-progress-wrap">
+          <span class="progress-label">Compliments Discovered:</span>
+          <span id="revealed-count" class="progress-count">0</span> / 10
+          <div class="progress-bar-bg">
+            <div id="progress-bar-fill" class="progress-bar-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10 Flippable Cards -->
+      <div class="reasons-grid">
+        <!-- Reason 1 -->
+        <div class="flip-card" data-reason="1" role="button" tabindex="0" aria-label="Reason 1. Tap to flip">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="reason-badge">Reason #1</span>
+              <span class="reason-emoji">✨</span>
+              <h3 class="reason-title">Your Smile</h3>
+              <p class="card-tap-cue">Tap to reveal 💖</p>
+            </div>
+            <div class="flip-card-back">
+              <span class="back-heart">💛</span>
+              <p class="reason-text">Your unbelievably beautiful smile lights up even the darkest room. Whenever I see you smile, all my worries disappear into thin air.</p>
+              <span class="back-tag">Pure Sunshine ☀️</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reason 2 -->
+        <div class="flip-card" data-reason="2" role="button" tabindex="0" aria-label="Reason 2. Tap to flip">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="reason-badge">Reason #2</span>
+              <span class="reason-emoji">🌸</span>
+              <h3 class="reason-title">Your Personality</h3>
+              <p class="card-tap-cue">Tap to reveal 💖</p>
+            </div>
+            <div class="flip-card-back">
+              <span class="back-heart">🌸</span>
+              <p class="reason-text">Your adorable personality is one of a kind. You're playful, sweet, caring, and so wonderfully fun to be with.</p>
+              <span class="back-tag">100% Irresistible 💕</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reason 3 -->
+        <div class="flip-card" data-reason="3" role="button" tabindex="0" aria-label="Reason 3. Tap to flip">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="reason-badge">Reason #3</span>
+              <span class="reason-emoji">👀</span>
+              <h3 class="reason-title">Your Eyes</h3>
+              <p class="card-tap-cue">Tap to reveal 💖</p>
+            </div>
+            <div class="flip-card-back">
+              <span class="back-heart">✨</span>
+              <p class="reason-text">Your beautiful eyes sparkle with innocence, depth, and kindness. I could get lost in them forever and never want to find my way back.</p>
+              <span class="back-tag">Stargazer Eyes 💫</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reason 4 -->
+        <div class="flip-card" data-reason="4" role="button" tabindex="0" aria-label="Reason 4. Tap to flip">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="reason-badge">Reason #4</span>
+              <span class="reason-emoji">☕</span>
+              <h3 class="reason-title">Ordinary Moments</h3>
+              <p class="card-tap-cue">Tap to reveal 💖</p>
+            </div>
+            <div class="flip-card-back">
+              <span class="back-heart">🌷</span>
+              <p class="reason-text">The way you make ordinary moments special. Just talking to you or sharing a simple quiet minute feels like a magical memory.</p>
+              <span class="back-tag">Magical Touch 🪄</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reason 5 -->
+        <div class="flip-card" data-reason="5" role="button" tabindex="0" aria-label="Reason 5. Tap to flip">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="reason-badge">Reason #5</span>
+              <span class="reason-emoji">🕊️</span>
+              <h3 class="reason-title">Your Kindness</h3>
+              <p class="card-tap-cue">Tap to reveal 💖</p>
+            </div>
+            <div class="flip-card-back">
+              <span class="back-heart">🤍</span>
+              <p class="reason-text">Your kindness and gentleness towards everyone. You have a heart of pure gold, and your empathy makes this world a softer place.</p>
+              <span class="back-tag">Angel Heart 👼</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reason 6 -->
+        <div class="flip-card" data-reason="6" role="button" tabindex="0" aria-label="Reason 6. Tap to flip">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="reason-badge">Reason #6</span>
+              <span class="reason-emoji">🎶</span>
+              <h3 class="reason-title">Your Laugh</h3>
+              <p class="card-tap-cue">Tap to reveal 💖</p>
+            </div>
+            <div class="flip-card-back">
+              <span class="back-heart">🎵</span>
+              <p class="reason-text">Your laugh is genuinely my favourite melody in the entire universe. It's contagious, cheerful, and heals everything instantly.</p>
+              <span class="back-tag">Sweet Melody 💖</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reason 7 -->
+        <div class="flip-card" data-reason="7" role="button" tabindex="0" aria-label="Reason 7. Tap to flip">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="reason-badge">Reason #7</span>
+              <span class="reason-emoji">🧸</span>
+              <h3 class="reason-title">Your Little Habits</h3>
+              <p class="card-tap-cue">Tap to reveal 💖</p>
+            </div>
+            <div class="flip-card-back">
+              <span class="back-heart">🐾</span>
+              <p class="reason-text">Your cute little habits, expressions, and funny little quirks. Every tiny detail about you makes me adore you a million times more.</p>
+              <span class="back-tag">Utterly Adorable 🥰</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reason 8 -->
+        <div class="flip-card" data-reason="8" role="button" tabindex="0" aria-label="Reason 8. Tap to flip">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="reason-badge">Reason #8</span>
+              <span class="reason-emoji">💖</span>
+              <h3 class="reason-title">Your Heart</h3>
+              <p class="card-tap-cue">Tap to reveal 💖</p>
+            </div>
+            <div class="flip-card-back">
+              <span class="back-heart">💗</span>
+              <p class="reason-text">Your beautiful heart that loves so deeply and sincerely. To be cherished by someone with a soul as pure as yours is my greatest gift.</p>
+              <span class="back-tag">Pure & Rare 💎</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reason 9 -->
+        <div class="flip-card" data-reason="9" role="button" tabindex="0" aria-label="Reason 9. Tap to flip">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="reason-badge">Reason #9</span>
+              <span class="reason-emoji">🌈</span>
+              <h3 class="reason-title">The Happiness</h3>
+              <p class="card-tap-cue">Tap to reveal 💖</p>
+            </div>
+            <div class="flip-card-back">
+              <span class="back-heart">🌻</span>
+              <p class="reason-text">The happiness you bring into my life every single day. Just knowing you exist and you're mine fills my world with warmth.</p>
+              <span class="back-tag">My Sunshine ☀️</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reason 10 -->
+        <div class="flip-card" data-reason="10" role="button" tabindex="0" aria-label="Reason 10. Tap to flip">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="reason-badge">Reason #10</span>
+              <span class="reason-emoji">👑</span>
+              <h3 class="reason-title">Simply Because...</h3>
+              <p class="card-tap-cue">Tap to reveal 💖</p>
+            </div>
+            <div class="flip-card-back">
+              <span class="back-heart">❤️</span>
+              <p class="reason-text">Simply because you're YOU! No one in this entire world could ever be Nikku. You are irreplaceable, extraordinary, and my everything.</p>
+              <span class="back-tag">My Whole World 🌍</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Completion celebratory banner when all 10 flipped -->
+      <div id="all-unlocked-banner" class="all-unlocked-banner hidden">
+        <span class="party-emoji">🎉</span>
+        <p><strong>All 10 Reasons Unlocked!</strong> You are infinitely loved, my sweet Nikku! 💖🌻</p>
+      </div>
+    </section>
+
+    <!-- SECTION 5: A LITTLE HAPPINESS BUTTON -->
+    <section class="section-container" id="happiness-button-section">
+      <div class="section-card hug-card glass-card">
+        <div class="card-pill yellow-pill">Instant Warmth Station</div>
+        <h2 class="section-title">A Little Happiness Button 🥺</h2>
+        <p class="section-desc">Whenever you feel a little sad, tired, or need someone to hold you tight, tap this button for an endless supply of love!</p>
+
+        <!-- The Hero Hug Button -->
+        <div class="hug-button-wrapper">
+          <button id="hug-btn" class="hug-hero-button" type="button">
+            <span class="hug-btn-icon">🥺</span>
+            <span class="hug-btn-text">Need A Hug? Click Here</span>
+            <span class="hug-btn-heart">💕</span>
+          </button>
+        </div>
+
+        <!-- Hug Counter -->
+        <div class="hug-counter-badge">
+          <span>Hugs sent to Nikku:</span>
+          <strong id="hug-counter">0</strong>
+          <span>🤗</span>
+        </div>
+
+        <!-- Dynamic Sweet Message Display Box -->
+        <div id="hug-message-box" class="hug-message-box glass-card">
+          <div class="hug-quote-mark">“</div>
+          <p id="hug-message-text" class="hug-message-text">Sending you the biggest virtual hug ever! 🤗</p>
+          <div class="hug-message-author">— With all my love, forever and always</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: SURPRISE SECRET LOVE NOTE -->
+    <section class="section-container" id="secret-surprise-section">
+      <div class="section-card surprise-card glass-card">
+        <div class="card-pill pink-pill">A Special Delivery</div>
+        <h2 class="section-title">A Surprise Just For Nikku 🎁</h2>
+        <p class="section-desc">I sealed an extra secret note inside this romantic envelope. Tap to open it!</p>
+
+        <!-- Interactive Envelope -->
+        <div class="envelope-interactive" id="secret-envelope" role="button" tabindex="0" aria-label="Tap to open secret love envelope">
+          <div class="envelope-wrapper">
+            <div class="envelope-back"></div>
+            <!-- Letter inside sliding out -->
+            <div class="envelope-letter" id="envelope-letter">
+              <span class="mini-stamp">💌</span>
+              <h4>My Darling Nikku,</h4>
+              <p>Whenever you doubt yourself, close your eyes and remember how much you mean to me. You are my favorite thought, every morning and every night.</p>
+              <div class="mini-sign">Forever Yours ❤️</div>
+            </div>
+            <div class="envelope-front"></div>
+            <div class="envelope-flap" id="envelope-flap"></div>
+            <div class="wax-seal" id="wax-seal">
+              <span>N 💛</span>
+            </div>
+          </div>
+          <span class="envelope-tap-hint">✨ Tap the wax seal to open the letter ✨</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: A FINAL LOVE LETTER -->
+    <section class="section-container" id="love-letter-section">
+      <div class="section-card love-letter-card">
+        <!-- Vintage paper / romantic stationery styling -->
+        <div class="letter-washi-tape" aria-hidden="true"></div>
+        <div class="letter-postage-stamp" aria-hidden="true">
+          <span>🌻 Nikku 100%</span>
+        </div>
+
+        <div class="letter-header">
+          <div class="card-pill letter-pill">From My Soul To Yours</div>
+          <h2 class="letter-title cursive-highlight">One Last Thing, My Love... 💌</h2>
+        </div>
+
+        <div class="letter-body-text">
+          <p class="letter-opening">Nikkuuu, if there's one thing I want you to remember, it's this:</p>
+
+          <p class="poetic-line">You are beautiful on your happiest days and on your hardest days.</p>
+
+          <p class="poetic-line">You are precious when you're smiling and equally precious when you're not.</p>
+
+          <p class="poetic-line">You don't need to change anything about yourself to deserve love.</p>
+
+          <p>If the world ever feels a little too heavy, remember that there's someone who thinks you're <strong class="letter-strong">the prettiest girl in the entire universe</strong>.</p>
+
+          <p class="letter-proud">And that someone is me.</p>
+
+          <p class="letter-sign-off">Forever your biggest admirer. ❤️</p>
+
+          <div class="letter-grand-finale">
+            <h3>I LOVE YOU SOOOOO MUCH, NIKKUUU! 💗🌻🐱</h3>
+          </div>
+        </div>
+
+        <!-- Interactive Send Love Back Button -->
+        <div class="letter-interaction">
+          <button id="send-kiss-btn" class="send-kiss-btn" type="button">
+            <span>Send A Kiss Back 💋</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="romantic-footer">
+      <div class="footer-cats-row" aria-hidden="true">
+        <span>🐱</span><span>🌻</span><span>🐾</span><span>💖</span><span>🐾</span><span>🌻</span><span>🐱</span>
+      </div>
+      <p class="footer-text">Crafted with infinite love for Nikku | Forever & Always</p>
+      <button id="back-to-top-btn" class="back-to-top-btn" type="button" aria-label="Back to top">
+        <span>Back to Top ⬆️</span>
+      </button>
+    </footer>
+
+  </main>
+
+  <!-- CELEBRATION MODAL FOR KISS / LOVE SHOWER -->
+  <div id="kiss-modal" class="kiss-modal hidden" role="dialog" aria-modal="true" aria-label="Celebration love popup">
+    <div class="kiss-modal-card glass-card">
+      <div class="kiss-modal-emojis">💋 🌻 🐱 💖 🌻 💋</div>
+      <h3>Kiss Received!</h3>
+      <p>My heart just skipped a beat, Nikkuuu! Sending you a million warm cuddles and sunflower petals right now! 🥰</p>
+      <button id="close-kiss-modal" class="glow-button mini-btn" type="button">I Love You Too! 💛</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
